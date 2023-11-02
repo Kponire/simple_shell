@@ -5,7 +5,9 @@
 #include <unistd.h>
 #include <stddef.h>
 #include <stdbool.h>
+#include <string.h>
+#define buffsize 1024
 
-char *_getenv(const char *filename);
+size_t _getline(char **inputstr, size_t *size, FILE *fp);
 
 #endif

@@ -1,11 +1,17 @@
 #include "shell.h"
 
-int main(__attribute__((unused)) int argc, char **argv)
+int main(void)
 {
-	char *textinput;
+	char *texts = NULL;
+	size_t i = 0;
+	ssize_t bty;
 
-	while (true)
+	bty = _getline(&texts, &i, stdin);
+	printf("Length is %lu\n", bty);
+	printf("The string %s\n", texts);
+	/*while (true)
 	{
 		textinput = _getline(stdin);
-	}
+	*/
+	return (0);
 }

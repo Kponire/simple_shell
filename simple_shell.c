@@ -1,5 +1,10 @@
 #include "shell.h"
 
+/**
+ * main - 
+ * Return: 0 
+ */
+
 int main(void)
 {
 	char *texts = NULL;
@@ -10,7 +15,7 @@ int main(void)
 	bty = _getline(&texts, &i, stdin);
 	bts = _strtok(texts, ' ');
 	printf("Length is %lu\n", bty);
-	printf("The string %s\n", texts);
+	printf("The string is %s\n", texts);
 	printf("The first string is %s\n", bts[0]); 
 	/*while (true)
 	{

@@ -23,7 +23,6 @@ char **_strtok(const char *str, char delim)
 		if (str[i] == delim || str[i] == '\0')
 		{
 			text[j] = '\0';
-			printf("%s\n", text);
 			strcpy(tokens[k], text);
 			j = 0;
 			k++;

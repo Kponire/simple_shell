@@ -9,5 +9,6 @@
 #define buffsize 1024
 
 size_t _getline(char **inputstr, size_t *size, FILE *fp);
+char **_strtok(const char *str, char delim);
 
 #endif

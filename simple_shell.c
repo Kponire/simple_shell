@@ -1,22 +1,20 @@
 #include "shell.h"
 
-/**
- * main - 
- * Return: 0 
- */
-
 int main(void)
 {
 	char *texts = NULL;
 	size_t i = 0;
 	ssize_t bty;
 	char **bts;
+	char *path;
 
 	bty = _getline(&texts, &i, stdin);
 	bts = _strtok(texts, ' ');
+	path = _getenv("PATH");
 	printf("Length is %lu\n", bty);
 	printf("The string is %s\n", texts);
-	printf("The first string is %s\n", bts[0]); 
+	printf("The first string is %s\n", bts[0]);
+	printf("path value is %s\n", path);
 	/*while (true)
 	{
 		textinput = _getline(stdin);

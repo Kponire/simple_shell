@@ -17,6 +17,7 @@ int main(void)
 	printf("The first string is %s\n", bts[0]);
 	printf("path value is %s\n", path);
 	printf("Fullpath is %s\n", fullpath);
+	_execute(fullpath, bts);
 	/*while (true)
 	{
 		textinput = _getline(stdin);

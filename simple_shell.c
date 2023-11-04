@@ -30,6 +30,10 @@ int main(void)
 	};
 	path = _getenv("PATH");
 	fullpath = _getpath(path, bts[0]);
+	if (fullpath == NULL)
+	{
+		fullpath = bts[0];
+	}
 	printf("Length is %lu\n", bty);
 	printf("The string is %s\n", texts);
 	printf("The first string is %s\n", bts[0]);

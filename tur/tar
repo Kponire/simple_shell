@@ -1,0 +1,15 @@
+#include "shell.h"
+
+int _built(char *param)
+{
+	char *s = "exit";
+	int st;
+
+	if (strcmp(param, s) == 0)
+	{
+		st = hsh_exit();
+		if (st == -1)
+			return (-1);
+	}
+	return (1);
+}

@@ -2,7 +2,6 @@
 
 int _execute(char *fullpath, char **command)
 {
-	char **env = environ;
 	pid_t proc;
 	int id, status;
 
@@ -14,7 +13,7 @@ int _execute(char *fullpath, char **command)
 	}
 	if (proc == 0)
 	{
-		status = execve(fullpath, command, env);
+		status = execve(fullpath, command, environ);
 		if (status == -1)
 		{
 			fputs("Unable to execute the command\n", stderr);

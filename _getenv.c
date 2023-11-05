@@ -28,3 +28,16 @@ char *_getenv(const char *name)
 	}
 	return (NULL);
 }
+
+int hsh_env(__attribute__((unused)) char **token)
+{
+	unsigned int i = 0;
+
+	while (environ[i] != NULL)
+	{
+		write(1, environ[i], strlen(environ[i]));
+		write(1, "\n", 1);
+		i++;
+	}
+	return (0);
+}

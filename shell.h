@@ -30,6 +30,7 @@ int _execute(char *fullpath, char **command);
 /*int _built(char *param);*/
 int builtIn(char **tokens);
 void hsh_exit(char **token);
+int hsh_env(__attribute__((unused)) char **token);
 void hsh_free(char *text, char **token, char *path, char *fullpath);
 
 #endif

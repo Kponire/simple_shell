@@ -5,6 +5,7 @@ int builtIn(char **tokens)
 	int i, status;
 
 	built_in builtin_arr[] = {
+		{"env", hsh_env},
 		{NULL, NULL},
 	};
 	for (i = 0; builtin_arr[i].command != NULL; i++)
@@ -12,7 +13,6 @@ int builtIn(char **tokens)
 		if (strcmp(builtin_arr[i].command, tokens[0]) == 0)
 		{
 			status = (builtin_arr[i].execute)(tokens);
-			free(tokens);
 			return (status);
 		}
 	}

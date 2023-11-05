@@ -7,27 +7,26 @@ int main(void)
 	ssize_t bty;
 	char **bts;
 	char *path, *fullpath;
-	int builtin_id;
+	/*int builtin_id;*/
 	struct stat buf;
 
 	while (exe)
 	{
-	_prompt(STDIN_FILENO, buf);
+	fflush(stdin);
 	texts = NULL;
+	_prompt(STDIN_FILENO, buf);
 	bty = _getline(&texts, &i, stdin);
 	bts = _strtok(texts, ' ');
-	/*id = _built(bts[0]);
-	printf("%d\n", id);*/
-	builtin_id = builtIn(bts[0]);
+	if (strcmp(bts[0], "exit") == 0)
+		hsh_exit(bts);
+	/*builtin_id = builtIn(bts);
 	printf("%d\n", builtin_id);
 	if (builtin_id == -1 || builtin_id == 0)
-	{
 		free(bts);
-	};
 	if (builtin_id == -1)
-	{
 		_exit(EXIT_SUCCESS);
-	};
+	else
+		_exit(builtin_id);*/
 	path = _getenv("PATH");
 	fullpath = _getpath(path, bts[0]);
 	if (fullpath == NULL)

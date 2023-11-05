@@ -6,6 +6,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include <string.h>
+#include <ctype.h>
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -17,7 +18,7 @@ extern char **environ;
 typedef struct builtin
 {
 	char *command;
-	int (*execute)(void);
+	int (*execute)(char **);
 } built_in;
 
 void _prompt(int fd, struct stat buf);
@@ -27,8 +28,8 @@ char *_getenv(const char *name);
 char *_getpath(char *path, char *command);
 int _execute(char *fullpath, char **command);
 /*int _built(char *param);*/
-int builtIn(char *token);
-int hsh_exit(void);
+int builtIn(char **tokens);
+void hsh_exit(char **token);
 void hsh_free(char *text, char **token, char *path, char *fullpath);
 
 #endif

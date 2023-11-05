@@ -14,6 +14,7 @@ size_t _getline(char **inputstr, size_t *size, FILE *fp)
 		fputs("Can't access the stdin file!", stderr);
 		return (-1);
 	}
+	fflush(stdin);
 	*size = sizeof(texts);
 	if (*inputstr == NULL)
 	{
@@ -25,7 +26,6 @@ size_t _getline(char **inputstr, size_t *size, FILE *fp)
 			return (-1);
 		}
 	}
-	fflush(stdin);
 	while (fgets(texts, sizeof(texts), fp) != NULL)
 	{
 		if (*size - strlen(*inputstr) < sizeof(texts))

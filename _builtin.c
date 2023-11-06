@@ -6,6 +6,7 @@ int builtIn(char **tokens)
 
 	built_in builtin_arr[] = {
 		{"env", hsh_env},
+		{"cd", hsh_cd},
 		{NULL, NULL},
 	};
 	for (i = 0; builtin_arr[i].command != NULL; i++)

@@ -11,6 +11,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <limits.h>
 #define buffsize 1024
 #define exe 1
 extern char **environ;
@@ -32,6 +33,8 @@ int builtIn(char **tokens);
 void hsh_exit(char **token);
 int hsh_env(__attribute__((unused)) char **token);
 int hsh_cd(char **token);
+int _setenv(char **token);
+int _unsetenv(char **token);
 void hsh_free(char *text, char **token, char *path, char *fullpath);
 
 #endif

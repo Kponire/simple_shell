@@ -15,6 +15,7 @@
 #define buffsize 1024
 #define exe 1
 extern char **environ;
+extern int exit_id;
 
 typedef struct builtin
 {
@@ -35,6 +36,8 @@ int hsh_env(__attribute__((unused)) char **token);
 int hsh_cd(char **token);
 int _setenv(char **token);
 int _unsetenv(char **token);
+int _echo(char **token);
+void print_int(unsigned int number);
 void hsh_free(char *text, char **token, char *path, char *fullpath);
 
 #endif

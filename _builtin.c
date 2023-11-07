@@ -9,6 +9,7 @@ int builtIn(char **tokens)
 		{"cd", hsh_cd},
 		{"setenv", _setenv},
 		{"unsetenv", _unsetenv},
+		{"echo", _echo},
 		{NULL, NULL},
 	};
 	for (i = 0; builtin_arr[i].command != NULL; i++)

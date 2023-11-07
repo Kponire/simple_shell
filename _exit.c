@@ -2,7 +2,7 @@
 
 void hsh_exit(char **token)
 {
-	int i = 0, exit_id;
+	int i = 0, exit_id = 0;
 
 	if (token[1] == NULL)
 	{

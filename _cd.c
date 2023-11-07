@@ -7,7 +7,7 @@ int hsh_cd(char **token)
 
 	if (token[1] == NULL)
 		loc = chdir(_getenv("HOME"));
-	if (strcmp(token[1], "-") == 0)
+	else if (strcmp(token[1], "-") == 0)
 		loc = chdir(_getenv("OLDPWD"));
 	else
 		loc = chdir(token[1]);

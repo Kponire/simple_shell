@@ -1,50 +1,43 @@
 #include "shell.h"
 
-size_t _getline(char **inputstr, size_t *size, FILE *fp)
+char *_getline()
 {
-	char texts[buffsize];
+	int i = 0, bs, buffer = buffsize;
+	char *texts, c = 'z';
 
-	if (inputstr == NULL || size == NULL)
+	texts =  malloc(sizeof(char) * buffer);
+	if (texts == NULL)
 	{
-		fputs("No argument entered!", stderr);
-		return (-1);
-	}
-	if (fp == NULL)
-	{
-		fputs("Can't access the stdin file!", stderr);
-		return (-1);
+		free(texts);
+		return (NULL);
 	}
 	fflush(stdin);
-	*size = sizeof(texts);
-	if (*inputstr == NULL)
+	while (c != EOF || c != '\n')
 	{
-		*inputstr = malloc(*size);
-		if (*inputstr == NULL)
+		bs = read(STDIN_FILENO, &c, 1);
+		if (bs == 0)
 		{
-			perror("Unable to allocate enough memory to the buffer");
-			free(*inputstr);
-			return (-1);
+			free(texts);
+			_exit(EXIT_SUCCESS);
 		}
-	}
-	while (fgets(texts, sizeof(texts), fp) != NULL)
-	{
-		if (*size - strlen(*inputstr) < sizeof(texts))
+		texts[i] = c;
+		if (texts[0] == '\n')
 		{
-			*size *= 2;
-			*inputstr = realloc(*inputstr, *size);
-			if (*inputstr == NULL)
+			free(texts);
+			return ("\0");
+		}
+		if (i >= buffer)
+		{
+			buffer *= 2;
+			texts = realloc(texts, buffer);
+			if (texts == NULL)
 			{
-				perror("Unable to reallocate memory for buffer");
-				free(*inputstr);
-				return (-1);
+				free(texts);
+				return (NULL);
 			}
 		}
-		strcat(*inputstr, texts);
-		if ((*inputstr)[strlen(*inputstr) - 1] == '\n')
-		{
-			(*inputstr)[strlen(*inputstr) - 1] = '\0';
-			return (strlen(*inputstr));
-		}
+			i++;
 	}
-	return (-1);
+	texts[i] = '\0';
+	return (texts);
 }

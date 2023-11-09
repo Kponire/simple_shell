@@ -7,7 +7,7 @@ void print_int(unsigned int number)
 	if ((int)number < 0)
 	{
 		number *= -1;
-		putchar('-');
+		_putchar('-');
 		sum++;
 	}
 	while ((number / x) > 9)

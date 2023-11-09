@@ -6,13 +6,15 @@ int _echo(char **token)
 	pid_t ppid;
 	
 	ppid = getppid();
-	if (strcmp(token[0], "$?") == 0)
+	if (strcmp(token[1], "$?") == 0)
 	{
-		print_int(exit_id);
+		print_int(0);
+		return (0);
 	}
 	if (strcmp(token[1], "$$") == 0)
 	{
 		print_int(ppid);
+		return (0);
 	}
 	if (strcmp(token[1], "$PATH") == 0)
 	{

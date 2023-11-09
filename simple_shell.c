@@ -3,8 +3,6 @@
 int main(void)
 {
 	char *texts;
-	size_t i = 0;
-	ssize_t bty;
 	char **bts;
 	char *path, *fullpath;
 	int builtin_id;
@@ -12,11 +10,8 @@ int main(void)
 
 	while (exe)
 	{
-	fflush(stdin);
-	texts = NULL;
-	i = 0;
 	_prompt(STDIN_FILENO, buf);
-	bty = _getline(&texts, &i, stdin);
+	texts = _getline();
 	bts = _strtok(texts, ' ');
 	if (strcmp(bts[0], "exit") == 0)
 		hsh_exit(bts);
@@ -34,7 +29,7 @@ int main(void)
 	{
 		fullpath = bts[0];
 	}
-	printf("Length is %lu\n", bty);
+	printf("Length is %lu\n", strlen(texts));
 	printf("The string is %s\n", texts);
 	printf("The first string is %s\n", bts[0]);
 	printf("path value is %s\n", path);

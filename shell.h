@@ -22,9 +22,9 @@ typedef struct builtin
 	char *command;
 	int (*execute)(char **);
 } built_in;
-
+int _putchar(char c);
 void _prompt(int fd, struct stat buf);
-size_t _getline(char **inputstr, size_t *size, FILE *fp);
+char *_getline();
 char **_strtok(const char *str, char delim);
 char *_getenv(const char *name);
 char *_getpath(char *path, char *command);

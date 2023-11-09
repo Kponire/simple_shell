@@ -19,10 +19,13 @@ char **_strtok(const char *str, char delim)
 		if (str[i] == delim || str[i] == '\0')
 		{
 			text[j] = '\0';
-			tokens[k] = malloc(sizeof(text));
-			strcpy(tokens[k], text);
+			if (text[0] != '\0')
+			{
+				tokens[k] = malloc(sizeof(text));
+				strcpy(tokens[k], text);
+				k++;
+			}
 			j = 0;
-			k++;
 		}
 		else
 		{

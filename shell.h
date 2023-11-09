@@ -22,7 +22,9 @@ typedef struct builtin
 	char *command;
 	int (*execute)(char **);
 } built_in;
+
 int _putchar(char c);
+void _signal(int cmd);
 void _prompt(int fd, struct stat buf);
 char *_getline();
 void hsh_hash(char *texts);
@@ -30,7 +32,6 @@ char **_strtok(const char *str, char delim);
 char *_getenv(const char *name);
 char *_getpath(char *path, char *command);
 int _execute(char *fullpath, char **command);
-/*int _built(char *param);*/
 int builtIn(char **tokens);
 void hsh_exit(char **token);
 int hsh_env(__attribute__((unused)) char **token);
@@ -39,6 +40,6 @@ int _setenv(char **token);
 int _unsetenv(char **token);
 int _echo(char **token);
 void print_int(unsigned int number);
-void hsh_free(char *text, char **token, char *path, char *fullpath);
+void hsh_freeall(char *text, char **token, char *path, char *fullpath);
 
 #endif

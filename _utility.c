@@ -19,3 +19,11 @@ void print_int(unsigned int number)
 		sum++;
 	}
 }
+
+void _signal(int cmd)
+{
+	if (cmd == SIGINT)
+	{
+		write(STDOUT_FILENO, "\n$ ", 3);
+	}
+}

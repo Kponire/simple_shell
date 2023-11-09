@@ -25,6 +25,7 @@ typedef struct builtin
 int _putchar(char c);
 void _prompt(int fd, struct stat buf);
 char *_getline();
+void hsh_hash(char *texts);
 char **_strtok(const char *str, char delim);
 char *_getenv(const char *name);
 char *_getpath(char *path, char *command);

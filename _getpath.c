@@ -1,5 +1,12 @@
 #include "shell.h"
 
+/**
+ * _getpath - function that searches the path of the environment variable
+ * @path: the path of the variable
+ * @command: the input string
+ * Return: the path otherwise null
+ */
+
 char *_getpath(char *path, char *command)
 {
 	char **token, *fullpath, *pthcpy, *dir;

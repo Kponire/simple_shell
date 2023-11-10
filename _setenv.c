@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/**
+ * _setenv - function that adds a new environment variable
+ * @token: the input string
+ * Return: 0 which indicates success otherwise -1
+ */
+
 int _setenv(char **token)
 {
 	int i = 0;
@@ -34,6 +40,11 @@ int _setenv(char **token)
 	return (0);
 }
 
+/**
+ * _unsetenv - deletes an environment variable
+ * @token: the variable
+ * Return: 0
+ */
 
 int _unsetenv(char **token)
 {
@@ -69,8 +80,6 @@ int _unsetenv(char **token)
 		}
 	}
 	newenv[j] = NULL;
-	/*free(environ[unset]);
-	free(environ);*/
 	environ = newenv;
 	return (0);
 }

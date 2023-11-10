@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/**
+ * builtIn - function that checks for the command and implement the fuctions
+ * @tokens: the input string
+ * Return: 0 which indicates success and 1 to continue
+ */
+
 int builtIn(char **tokens)
 {
 	int i, status;

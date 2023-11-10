@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/**
+ * hsh_cd - function that implements the builtin change directory in unix
+ * @token: the input string
+ * Return: 0 which indicates success
+ */
+
 int hsh_cd(char **token)
 {
 	int loc;

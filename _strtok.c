@@ -28,8 +28,9 @@ char **_strtok(const char *str, char delim)
 			text[j] = '\0';
 			if (text[0] != '\0')
 			{
-				tokens[k] = malloc(sizeof(text));
-				strcpy(tokens[k], text);
+				tokens[k] = strdup(text);
+				/*tokens[k] = malloc(sizeof(text));
+				strcpy(tokens[k], text);*/
 				k++;
 			}
 			j = 0;
@@ -40,5 +41,6 @@ char **_strtok(const char *str, char delim)
 			j++;
 		}
 	}
+	tokens[k] = NULL;
 	return (tokens);
 }

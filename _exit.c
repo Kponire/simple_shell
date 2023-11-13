@@ -12,7 +12,7 @@ void hsh_exit(char **token)
 	if (token[1] == NULL)
 	{
 		free(token);
-		_exit(EXIT_SUCCESS);
+		exit(EXIT_SUCCESS);
 	}
 	while (token[1][i])
 	{
@@ -25,7 +25,7 @@ void hsh_exit(char **token)
 		{
 			exit_id = atoi(token[1]);
 			free(token);
-			_exit(exit_id);
+			exit(exit_id);
 		}
 	}
 }

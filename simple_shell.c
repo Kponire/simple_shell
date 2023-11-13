@@ -20,7 +20,6 @@ int main(void)
 		if (strcmp(bts[0], "exit") == 0)
 			hsh_exit(bts);
 		builtin_id = builtIn(bts);
-		printf("%d\n", builtin_id);
 		if (builtin_id == 0)
 		{
 			free(texts);
@@ -33,11 +32,6 @@ int main(void)
 		{
 			fullpath = bts[0];
 		}
-		printf("Length is %lu\n", strlen(texts));
-		printf("The string is %s\n", texts);
-		printf("The first string is %s\n", bts[0]);
-		printf("path value is %s\n", path);
-		printf("Fullpath is %s\n", fullpath);
 		_execute(fullpath, bts);
 		hsh_freeall(texts, bts, path, fullpath);
 	}

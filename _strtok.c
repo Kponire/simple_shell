@@ -18,7 +18,8 @@ char **_strtok(const char *str, char delim)
 	if (tokens == NULL)
 	{
 		free(tokens);
-		return (NULL);
+		write(STDERR_FILENO, err_malloc, strlen(err_malloc));
+		exit(EXIT_FAILURE);
 	}
 	size = strlen(str);
 	for (i = 0; i <= size; i++)
@@ -29,8 +30,6 @@ char **_strtok(const char *str, char delim)
 			if (text[0] != '\0')
 			{
 				tokens[k] = strdup(text);
-				/*tokens[k] = malloc(sizeof(text));
-				strcpy(tokens[k], text);*/
 				k++;
 			}
 			j = 0;

@@ -19,11 +19,17 @@ char *_getenv(const char *name)
 		if (strcmp(token[0], name) == 0)
 		{
 			enpath = token[1];
+			if (enpath == '\0')
+			{
+				write(STDERR_FILENO, err_path, strlen(err_path));
+				exit(EXIT_FAILURE);
+			}
 			length = strlen(enpath);
 			envalue = malloc((sizeof(char) * length) + 1);
 			if (envalue == NULL)
 			{
 				free(envalue);
+				write(STDERR_FILENO, err_malloc, strlen(err_malloc));
 				return (NULL);
 			}
 			envalue = strcpy(envalue, enpath);

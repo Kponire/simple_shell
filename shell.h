@@ -14,6 +14,9 @@
 #include <limits.h>
 #define buffsize 1024
 #define exe 1
+#define err_malloc "Unable to allocate space on the memory\n"
+#define err_path "No such file or directory\n"
+#define err_fork "Unable to fork and create child process\n"
 extern char **environ;
 extern int exit_id;
 

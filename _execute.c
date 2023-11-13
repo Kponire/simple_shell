@@ -15,7 +15,7 @@ int _execute(char *fullpath, char **command)
 	proc = fork();
 	if (proc == -1)
 	{
-		fputs("Unable to create a child process\n", stderr);
+		write(STDERR_FILENO, err_fork, strlen(err_fork));
 		return (-1);
 	}
 	if (proc == 0)
@@ -23,7 +23,7 @@ int _execute(char *fullpath, char **command)
 		status = execve(fullpath, command, environ);
 		if (status == -1)
 		{
-			fputs("Unable to execute the command\n", stderr);
+			write(STDERR_FILENO, err_path, strlen(err_path));
 			return (-1);
 		}
 	}

@@ -1,5 +1,10 @@
 #include "shell.h"
 
+/**
+ * main - function that mimics the Bourne-again SHell
+ * Return: 0 which indicates success
+ */
+
 int main(void)
 {
 	char *texts, **bts, *path, *fullpath;
@@ -34,11 +39,7 @@ int main(void)
 		printf("path value is %s\n", path);
 		printf("Fullpath is %s\n", fullpath);
 		_execute(fullpath, bts);
-		hsh_freeall(texts, bts, path, fullpath); 
-		/*free(texts);
-		free(bts);
-		free(path);
-		free(fullpath);*/
+		hsh_freeall(texts, bts, path, fullpath);
 	}
 	return (0);
 }

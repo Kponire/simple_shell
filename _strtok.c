@@ -1,5 +1,12 @@
 #include "shell.h"
 
+/**
+ * _strtok - function that breaks the getline string into arrays of word
+ * @str: the input string
+ * @delim: the split
+ * Return: array of strings
+ */
+
 char **_strtok(const char *str, char delim)
 {
 	char **tokens;

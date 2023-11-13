@@ -1,5 +1,10 @@
 #include "shell.h"
 
+/**
+ * print_int - writes integer to the console
+ * @number: the input number
+ */
+
 void print_int(unsigned int number)
 {
 	int sum = 0, x = 1;
@@ -19,6 +24,11 @@ void print_int(unsigned int number)
 		sum++;
 	}
 }
+
+/**
+ * _signal - filters out ctrl c
+ * @cmd: command
+ */
 
 void _signal(int cmd)
 {

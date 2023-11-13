@@ -17,6 +17,12 @@
 extern char **environ;
 extern int exit_id;
 
+/**
+ * struct builtin - checks if the command is inbuilt in unix
+ * @command: the input string
+ * @execute: function pointer
+ */
+
 typedef struct builtin
 {
 	char *command;

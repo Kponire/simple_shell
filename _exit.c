@@ -1,5 +1,10 @@
 #include "shell.h"
 
+/**
+ * hsh_exit - function that closes the shell
+ * @token: the input string
+ */
+
 void hsh_exit(char **token)
 {
 	int i = 0, exit_id = 0;

@@ -19,7 +19,7 @@ void _prompt(int fd, struct stat buf)
 
 void _prompt1(void)
 {
-	char *pmt = "$ ";
+	char *pmt = "($) ";
 
 	write(STDOUT_FILENO, pmt, strlen(pmt));
 }

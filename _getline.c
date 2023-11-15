@@ -23,6 +23,7 @@ char *_getline()
 		if (bs == 0)
 		{
 			free(texts);
+			_putchar('\n');
 			exit(EXIT_SUCCESS);
 		}
 		texts[i] = c;

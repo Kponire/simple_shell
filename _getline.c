@@ -47,6 +47,7 @@ char *_getline()
 	hsh_hash(texts);
 	return (texts);
 }
+
 /**
  * hsh_hash - removes every command after the # character
  * @texts: the input string from the stdin

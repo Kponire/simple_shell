@@ -45,13 +45,13 @@ char *_getenv(const char *name);
 char *_getpath(char *path, char *command);
 int _execute(char *fullpath, char **command);
 int builtIn(char **tokens);
-void hsh_exit(char **token);
+void hsh_exit(char **token, char *texts);
 int hsh_env(__attribute__((unused)) char **token);
 int hsh_cd(char **token);
 int _setenv(char **token);
 int _unsetenv(char **token);
 int _echo(char **token);
 void print_int(unsigned int number);
-void hsh_freeall(char *text, char **token, char *path, char *fullpath);
+void hsh_freeall(char *texts, char **token, char *path, char *fullpath);
 
 #endif

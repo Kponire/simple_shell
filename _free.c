@@ -2,15 +2,15 @@
 
 /**
  * hsh_freeall - function that free up the memory
- * @text: the allocated space to store the text
+ * @texts: the allocated space to store the text
  * @token: the array of strings
  * @path: the path
  * @fullpath: the fullpath
  */
 
-void hsh_freeall(char *text, char **token, char *path, char *fullpath)
+void hsh_freeall(char *texts, char **token, char *path, char *fullpath)
 {
-	free(text);
+	free(texts);
 	free(token);
 	free(path);
 	free(fullpath);

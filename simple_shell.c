@@ -25,7 +25,7 @@ int main(void)
 		}
 		bts = _strtok(texts, ' ');
 		if (strcmp(bts[0], "exit") == 0)
-			hsh_exit(bts);
+			hsh_exit(bts, texts);
 		builtin_id = builtIn(bts);
 		if (builtin_id == 0 || builtin_id == -1)
 		{

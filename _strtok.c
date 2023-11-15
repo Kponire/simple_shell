@@ -9,10 +9,8 @@
 
 char **_strtok(char *str, char delim)
 {
-	char **tokens;
-	char text[buffsize];
-	int i, j = 0, k = 0;
-	int size;
+	char **tokens, text[buffsize];
+	int i, j = 0, k = 0, size;
 
 	tokens = (char **)malloc(sizeof(text) * sizeof(char *));
 	if (tokens == NULL)
@@ -21,7 +19,7 @@ char **_strtok(char *str, char delim)
 		write(STDERR_FILENO, err_malloc, strlen(err_malloc));
 		exit(EXIT_FAILURE);
 	}
-	size = strlen(str);
+	size = _strlen(str);
 	for (i = 0; i <= size; i++)
 	{
 		if (str[i] == delim || str[i] == '\0')
@@ -29,9 +27,11 @@ char **_strtok(char *str, char delim)
 			text[j] = '\0';
 			if (text[0] != '\0')
 			{
-				tokens[k] = strdup(text);
+				tokens[k] = (char *)malloc(strlen(text) + 1);
+				strcpy(tokens[k], text);
 				k++;
 			}
+			memset(text, 0, sizeof(text));
 			j = 0;
 		}
 		else

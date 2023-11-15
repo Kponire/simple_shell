@@ -36,7 +36,7 @@ char *_getpath(char *path, char *command)
 		}
 		strcpy(fullpath, dir);
 		fullpath[dirsize] = '/';
-		strcat(fullpath, command);
+		strcpy(fullpath + dirsize + 1, command);
 		fullpath[length + dirsize + 1] = '\0';
 		if (access(fullpath, X_OK) != 0)
 		{

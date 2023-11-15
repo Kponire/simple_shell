@@ -35,6 +35,7 @@ typedef struct builtin
 int _putchar(char c);
 void _signal(int cmd);
 void _prompt(int fd, struct stat buf);
+void _prompt1();
 char *_getline();
 void hsh_hash(char *texts);
 char **_strtok(const char *str, char delim);

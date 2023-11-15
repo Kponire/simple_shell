@@ -12,3 +12,7 @@ void _prompt(int fd, struct stat buf)
 	if (S_ISCHR(buf.st_mode))
 		write(STDOUT_FILENO, "$ ", 2);
 }
+void _prompt1()
+{
+	write(STDIN_FILENO, "$ ", 2);
+}

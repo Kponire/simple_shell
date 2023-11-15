@@ -9,12 +9,14 @@ int main(void)
 {
 	char *texts, **bts, *path, *fullpath;
 	int builtin_id;
-	struct stat buf;
+	/*struct stat buf;*/
 
 	signal(SIGINT, _signal);
 	while (exe)
 	{
-		_prompt(STDIN_FILENO, buf);
+		/*_prompt(STDIN_FILENO, buf);*/
+		if (isatty(STDIN_FILENO))
+			_prompt1();
 		texts = _getline();
 		bts = _strtok(texts, ' ');
 		if (strcmp(bts[0], "exit") == 0)

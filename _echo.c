@@ -26,6 +26,7 @@ int _echo(char **token)
 	{
 		path = _getenv("PATH");
 		write(STDOUT_FILENO, path, strlen(path));
+		_putchar('\n');
 		free(path);
 		return (0);
 	}

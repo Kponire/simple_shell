@@ -65,3 +65,15 @@ void hsh_hash(char *texts)
 		}
 	}
 }
+
+int check_empty(char *texts)
+{
+	int i = 0, k = 0;
+
+	for (; texts[i] != '\0'; i++)
+	{
+		if (texts[i] == ' ')
+			k++;
+	}
+	return (k);
+}

@@ -18,6 +18,13 @@ int main(void)
 		if (isatty(STDIN_FILENO))
 			_prompt1();
 		texts = _getline();
+		if (strcmp(texts, "\0") == 0)
+			continue;
+		if ((int)strlen(texts) == check_empty(texts))
+		{
+			free(texts);
+			continue;
+		}
 		bts = _strtok(texts, ' ');
 		if (strcmp(bts[0], "exit") == 0)
 			hsh_exit(bts);

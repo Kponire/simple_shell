@@ -7,7 +7,7 @@
  * Return: array of strings
  */
 
-char **_strtok(const char *str, char delim)
+char **_strtok(char *str, char delim)
 {
 	char **tokens;
 	char text[buffsize];

@@ -12,6 +12,11 @@ void _prompt(int fd, struct stat buf)
 	if (S_ISCHR(buf.st_mode))
 		write(STDOUT_FILENO, "$ ", 2);
 }
+
+/**
+ * _prompt1 - prints $ to the stdout
+ */
+
 void _prompt1(void)
 {
 	char *pmt = "$ ";

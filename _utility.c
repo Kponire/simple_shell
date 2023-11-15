@@ -36,3 +36,14 @@ void _signal(int cmd)
 		write(STDOUT_FILENO, "\n$ ", 3);
 	}
 }
+
+int _strlen(char *s)
+{
+	int i;
+
+		for (i = 0; s[i] != '\0'; i++)
+		{
+			continue;
+		}
+	return (i);
+}

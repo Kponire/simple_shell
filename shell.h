@@ -38,6 +38,7 @@ void _prompt(int fd, struct stat buf);
 void _prompt1();
 char *_getline();
 int check_empty(char *texts);
+int _strlen(char *s);
 void hsh_hash(char *texts);
 char **_strtok(char *str, char delim);
 char *_getenv(const char *name);

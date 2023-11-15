@@ -14,5 +14,7 @@ void _prompt(int fd, struct stat buf)
 }
 void _prompt1()
 {
-	write(STDIN_FILENO, "$ ", 2);
+	char *pmt = "#cisfun$ ";
+
+	write(STDIN_FILENO, pmt, strlen(pmt));
 }

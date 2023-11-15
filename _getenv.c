@@ -22,7 +22,7 @@ char *_getenv(const char *name)
 			if (strcmp(enpath, "\0") == 0)
 			{
 				write(STDERR_FILENO, err_path, strlen(err_path));
-				free(enpath);
+				free(token);
 				exit(EXIT_FAILURE);
 			}
 			length = strlen(enpath);

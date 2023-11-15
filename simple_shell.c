@@ -27,7 +27,7 @@ int main(void)
 		if (strcmp(bts[0], "exit") == 0)
 			hsh_exit(bts);
 		builtin_id = builtIn(bts);
-		if (builtin_id == 0)
+		if (builtin_id == 0 || builtin_id == -1)
 		{
 			free(texts);
 			free(bts);

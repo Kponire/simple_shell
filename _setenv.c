@@ -13,7 +13,7 @@ int _setenv(char **token)
 
 	if (!token[1] || !token[2])
 	{
-		perror("Enter the path and value");
+		write(STDERR_FILENO, err_path, _strlen(err_path));
 		return (-1);
 	}
 	while (environ[i])
@@ -48,13 +48,13 @@ int _setenv(char **token)
 
 int _unsetenv(char **token)
 {
-	int i = 0, unset, j;
+	int i = 0, unset = -1, j;
 	char **enspt, **newenv;
 
 	if (token[1] == NULL)
 	{
-		perror("Please enter the path");
-		return (0);
+		write(STDERR_FILENO, err_path, _strlen(err_path));
+		return (-1);
 	}
 	while (environ[i] != NULL)
 	{
@@ -63,14 +63,20 @@ int _unsetenv(char **token)
 		{
 			unset = i;
 		}
+		free(enspt);
 		i++;
 	}
 	if (unset == -1)
 	{
-		perror("Can't find the path in the environment variables");
-		return (1);
+		write(STDERR_FILENO, err_path, _strlen(err_path));
+		return (-1);
 	}
 	newenv = malloc(sizeof(char *) * i);
+	if (newenv == NULL)
+	{
+		free(newenv);
+		return (-1);
+	}
 	for (i = j = 0; environ[i]; i++)
 	{
 		if (i != unset)

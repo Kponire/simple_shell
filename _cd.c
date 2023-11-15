@@ -11,7 +11,7 @@ int hsh_cd(char **token)
 	int loc;
 	char buffer[PATH_MAX + 1];
 
-	if (token[1] == NULL)
+	if (token[1] == NULL || strcmp(token[1], "~") == 0)
 		loc = chdir(_getenv("HOME"));
 	else if (strcmp(token[1], "-") == 0)
 		loc = chdir(_getenv("OLDPWD"));

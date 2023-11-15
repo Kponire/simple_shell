@@ -9,12 +9,10 @@ int main(void)
 {
 	char *texts, **bts, *path, *fullpath;
 	int builtin_id;
-	/*struct stat buf;*/
 
 	signal(SIGINT, _signal);
 	while (exe)
 	{
-		/*_prompt(STDIN_FILENO, buf);*/
 		if (isatty(STDIN_FILENO))
 			_prompt1();
 		texts = _getline();
@@ -39,7 +37,9 @@ int main(void)
 		fullpath = _getpath(path, bts[0]);
 		if (fullpath == NULL)
 		{
-			fullpath = bts[0];
+			write(STDERR_FILENO, err_path, _strlen(err_path));
+			hsh_freeall(texts, bts, path, fullpath);
+			continue;
 		}
 		_execute(fullpath, bts);
 		hsh_freeall(texts, bts, path, fullpath);

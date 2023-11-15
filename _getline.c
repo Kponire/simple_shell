@@ -67,6 +67,12 @@ void hsh_hash(char *texts)
 	}
 }
 
+/**
+ * check_empty - function that checks for empty stdin
+ * @texts: the input texts
+ * Return: length of empty texts
+ */
+
 int check_empty(char *texts)
 {
 	int i = 0, k = 0;

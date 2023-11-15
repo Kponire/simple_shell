@@ -35,7 +35,7 @@ typedef struct builtin
 int _putchar(char c);
 void _signal(int cmd);
 void _prompt(int fd, struct stat buf);
-void _prompt1();
+void _prompt1(void);
 char *_getline();
 int check_empty(char *texts);
 int _strlen(char *s);

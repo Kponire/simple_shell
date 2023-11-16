@@ -48,6 +48,5 @@ char *_getpath(char *path, char *command)
 			break;
 	}
 	free(pthcpy);
-	free(token);
 	return (fullpath);
 }

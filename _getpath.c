@@ -16,7 +16,7 @@ char *_getpath(char *path, char *command)
 		return (command);
 	length = strlen(command);
 	pthlen = strlen(path);
-	pthcpy = malloc((sizeof(char) * pthlen) + 1);
+	pthcpy = malloc((sizeof(char) * pthlen) + 2);
 	if (!pthcpy)
 	{
 		free(pthcpy);
@@ -48,5 +48,6 @@ char *_getpath(char *path, char *command)
 			break;
 	}
 	free(pthcpy);
+	free(token);
 	return (fullpath);
 }

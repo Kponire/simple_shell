@@ -37,6 +37,7 @@ int _setenv(char **token)
 	strcat(alloc, token[2]);
 	environ[i] = alloc;
 	environ[++i] = NULL;
+	free(enspt);
 	return (0);
 }
 

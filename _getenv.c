@@ -34,6 +34,7 @@ char *_getenv(const char *name)
 				return (NULL);
 			}
 			envalue = strcpy(envalue, enpath);
+			free(token);
 			return (envalue);
 		}
 		free(token);

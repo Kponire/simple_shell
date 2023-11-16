@@ -23,7 +23,7 @@ int main(void)
 			free(texts);
 			continue;
 		}
-		bts = _strtok(texts, "\n\t\r");
+		bts = _strtok(texts, "\n\t\r ");
 		if (strcmp(bts[0], "exit") == 0)
 			hsh_exit(bts, texts);
 		builtin_id = builtIn(bts);

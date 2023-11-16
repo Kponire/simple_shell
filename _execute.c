@@ -15,7 +15,7 @@ int _execute(char *fullpath, char **command)
 	if (status == -1)
 	{
 		write(STDERR_FILENO, err_path, strlen(err_path));
-		exit(EXIT_FAILURE);
+		exit(2);
 	}
 	return (0);
 }

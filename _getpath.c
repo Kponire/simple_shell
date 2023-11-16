@@ -23,7 +23,7 @@ char *_getpath(char *path, char *command)
 		return (NULL);
 	}
 	strcpy(pthcpy, path);
-	token = _strtok(pthcpy, ':');
+	token = _strtok(pthcpy, ":");
 	dir = token[1];
 	while (dir)
 	{
@@ -48,5 +48,6 @@ char *_getpath(char *path, char *command)
 			break;
 	}
 	free(pthcpy);
+	free(token);
 	return (fullpath);
 }

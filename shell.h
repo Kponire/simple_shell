@@ -40,7 +40,7 @@ char *_getline();
 int check_empty(char *texts);
 int _strlen(char *s);
 void hsh_hash(char *texts);
-char **_strtok(char *str, char delim);
+char **_strtok(char *str, char *delim);
 char *_getenv(const char *name);
 char *_getpath(char *path, char *command);
 int _execute(char *fullpath, char **command);

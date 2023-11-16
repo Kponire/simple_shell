@@ -7,39 +7,24 @@
  * Return: array of strings
  */
 
-char **_strtok(char *str, char delim)
+char **_strtok(char *str, char *delim)
 {
-	char **tokens, text[buffsize];
-	int i, j = 0, k = 0, size;
+	char **tokens, *token;
+	unsigned int i = 0;
 
-	tokens = (char **)malloc(sizeof(text) * sizeof(char *));
+	tokens = malloc(sizeof(char *) * buffsize);
 	if (tokens == NULL)
 	{
 		free(tokens);
-		write(STDERR_FILENO, err_malloc, strlen(err_malloc));
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
-	size = _strlen(str);
-	for (i = 0; i <= size; i++)
+	token = strtok(str, delim);
+	while (token != NULL)
 	{
-		if (str[i] == delim || str[i] == '\0')
-		{
-			text[j] = '\0';
-			if (text[0] != '\0')
-			{
-				tokens[k] = (char *)malloc(strlen(text) + 1);
-				strcpy(tokens[k], text);
-				k++;
-			}
-			memset(text, 0, sizeof(text));
-			j = 0;
-		}
-		else
-		{
-			text[j] = str[i];
-			j++;
-		}
+		tokens[i] = token;
+		token = strtok(NULL, "\n\t\r ");
+		i++;
 	}
-	tokens[k] = NULL;
+	tokens[i] = NULL;
 	return (tokens);
 }

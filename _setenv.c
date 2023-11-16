@@ -18,7 +18,7 @@ int _setenv(char **token)
 	}
 	while (environ[i])
 	{
-		enspt = _strtok(environ[i], '=');
+		enspt = _strtok(environ[i], "=");
 		if (strcmp(token[1], enspt[0]) == 0)
 		{
 			alloc = malloc(strlen(token[1]) + strlen(token[2]) + 2);
@@ -58,7 +58,7 @@ int _unsetenv(char **token)
 	}
 	while (environ[i] != NULL)
 	{
-		enspt = _strtok(environ[i], '=');
+		enspt = _strtok(environ[i], "=");
 		if (strcmp(enspt[0], token[1]) == 0)
 		{
 			unset = i;

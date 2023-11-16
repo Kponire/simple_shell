@@ -15,7 +15,7 @@ char *_getenv(const char *name)
 		return (NULL);
 	while (environ[i])
 	{
-		token = _strtok(environ[i], '=');
+		token = _strtok(environ[i], "=");
 		if (strcmp(token[0], name) == 0)
 		{
 			enpath = token[1];

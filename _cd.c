@@ -9,7 +9,7 @@
 int hsh_cd(char **token)
 {
 	int loc;
-	char buffer[PATH_MAX + 1];
+	char buffer[PATH_MAX + 1], *mns;
 
 	if (token[1] == NULL || strcmp(token[1], "~") == 0)
 		loc = chdir(_getenv("HOME"));
@@ -24,9 +24,11 @@ int hsh_cd(char **token)
 	}
 	else
 	{
+		mns = _getenv("PWD");
 		getcwd(buffer, sizeof(buffer));
-		setenv("OLDPWD", _getenv("PWD"), 1);
+		setenv("OLDPWD", mns, 1);
 		setenv("PWD", buffer, 1);
 	}
+	free(mns);
 	return (0);
 }

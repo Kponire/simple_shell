@@ -10,13 +10,12 @@
 char *_getpath(char *path, char *command)
 {
 	char **token, *fullpath, *pthcpy, *dir;
-	int i = 1, length, dirsize, pthlen;
+	int i = 1, length, dirsize;
 
 	if (access(command, X_OK) == 0)
 		return (command);
 	length = strlen(command);
-	pthlen = strlen(path);
-	pthcpy = malloc((sizeof(char) * pthlen) + 2);
+	pthcpy = malloc((sizeof(char) * strlen(path)) + 2);
 	if (!pthcpy)
 	{
 		free(pthcpy);
